@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var actionButton: Button
     private lateinit var costumButton: Button
     private lateinit var simpleButton: Button
+    private lateinit var dialogFragment: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         actionButton = findViewById(R.id.button_action_dialog)
         costumButton = findViewById(R.id.button_costum_dialog)
         simpleButton = findViewById(R.id.button_simple_dialog)
+        dialogFragment= findViewById(R.id.button_fragment_dialog)
 
 
         actionButton.setOnClickListener {
@@ -31,6 +33,12 @@ class MainActivity : AppCompatActivity() {
         }
         simpleButton.setOnClickListener {
             simpleCancelableDialog()
+        }
+
+        dialogFragment.setOnClickListener {
+            val alertDialogFragment= FragmentDialog()
+            alertDialogFragment.show(supportFragmentManager,"tag")
+
         }
 
     }
